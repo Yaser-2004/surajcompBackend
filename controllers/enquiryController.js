@@ -3,6 +3,8 @@ import sendEmail from "../config/mailer.js";
 export const sendEnquiry = async (req, res) => {
   try {
     const { name, mobile, email, service, message } = req.body;
+    console.log("here is this");
+    
 
     if (!name || !mobile || !message) {
       return res.status(400).json({ message: "Missing required fields" });
