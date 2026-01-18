@@ -100,6 +100,19 @@ export const getProducts = async (req, res) => {
   }
 };
 
+// GET /api/dashboard/products
+export const getAllProductsForDashboard = async (req, res) => {
+  try {
+    const products = await Product.find()
+      .sort({ createdAt: -1 });
+
+    res.status(200).json(products);
+  } catch (error) {
+    res.status(500).json({ message: error.message });
+  }
+};
+
+
 
 // export const updateProduct = async (req, res) => {
 //   try {
